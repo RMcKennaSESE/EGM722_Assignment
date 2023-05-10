@@ -1,20 +1,34 @@
-# EGM722_Assignment
-Repository for the purposes of the EGM722 assignment
+EGM722 – Programming for GIS & Remote Sensing
 
+NBA Map- How-to guide
+Ronan McKenna
+B00907678
 
-
-1.	Installation guide
+1.	Introduction
+Geography and basketball are two subjects which find themselves surprisingly intertwined. One of the more notable inspirations for this project was the work of Kirk Golsberry, a cartographer and data visualization specialist who has gone on to write for major publications such as ESPN and Grantland as well as publishing a book, Sprawlball (2019), on how space has driven change in how the game is played in the last decade. While the specifics of shot charts and what True Shooting % means aren’t explored here, it’s nice to give a nod to past work. The other main influence on this project is the work of Joey Loose (u/jloose128 on reddit) who has produced maps of the NCAA tournament each year. These maps, which display the closest US county to each team, at each stage in the tournament are the biggest source of inspiration for the work done here.
+This code in this repository is a Jupyter notebook intended to create and display a map of the USA containing point data for teams from the National Basketball Association. Data from US counties will also be incorporated and displayed according to the nearest NBA team. The last section of the code in this notebook will create and save bar charts to your working directory. Running this code will create a map displaying all 30 teams in the NBA as of writing this document (figure 1).
+ 
+Figure 1 Initial NBA Map
+The code will then use functions that will modify the data used and recalculate the map, essentially eliminating teams from the title race. After enough iterations this should produce for you a map that resembles figure 2, depending on what teams are eliminated.
+ 
+Figure 2 NBA Map after modifications
+To briefly explain this new map, teams still in contention have a red marker with a basketball on it, teams that have been eliminated are displayed with a blue marker with a fish on it (they’ve gone fishing).
+2.	Installation guide
 Repository for the code can be found here: https://github.com/RMcKennaSESE/EGM722_Assignment 
 Navigating to the repository should display a screen like the one in figure 3.
  
-Contents of repository and description
+Figure 3 Git repository of project
+Table 1 is a description of the contents of the repository.
+
+
+Table 1 Contents of repository and description
 Name	Description
 Charts 
-	Folder which will contain any images of charts saved when running the code.
+	Folder which will contain any images of charts saved when running the code. Contains example charts.
 Data-files 
 	Location of all data files used for this code, including shapefiles, .csv files and GEOJSON files.
 Maps 
-	Folder which will contain any maps saved when running the code.
+	Folder which will contain any maps saved when running the code. Contains example maps.
 .gitignore - 
 	Standard file telling git which files to ignore.
 Arena_Map_Project.ipynb 
@@ -24,41 +38,111 @@ LICENSE
 README.md 
 	Setup/installation guide for software.
 Scribbles.txt 	Plain text file containing notes taken while coding.
-
+		
 Installation instructions will be written presuming user has already set up git and a conda environment (in this case, the egm722 environment).
-In order to run the code on your own machine, you will first need to fork the repository and clone it to your own directory.
+Step 1. In order to run the code on your own machine, you will first need to fork the repository and clone it to your own directory.
+
  
-Make sure that on the next screen the option for Copy the main branch only is unchecked, then click Create fork.
+Figure 4 Fork button on github repository
+
+
+
+
+
+Step 2. Make sure that on the next screen the option for Copy the main branch only is unchecked, then click Create fork. (Figure 5).
+
  
-Once the repository is forked it will need to be cloned to your computer. To do this open up github desktop version.
+Figure 5 Forking the repository.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Step 3. Once the repository is forked it will need to be cloned to your computer. To do this open up github desktop version you should see a window like figure 6.
  
-Go to File->Clone repository or Ctrl+Shift+O to open the clone repository menu. 
+Figure 6 Github desktop version
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Go to File->Clone repository or Ctrl+Shift+O to open the clone repository menu. You should see something like figure 7.
  
-Select a path to save the repository to, remember where, as it will be needed for the next step. 
+Figure 7 Clone repository menu
+Select a path to save the repository to, remember where, as it will be needed for the next step. Click Clone to clone the repository. Once the repository is finished cloning, select the option, For my own purposes when asked how you are planning to use this fork, this will create an independent, local version of the repository that will not contribute to the upstream branch if done correctly.
 
-Click Clone to clone the repository. Once the repository is finished cloning, select the option For my own purposes when asked how you are planning to use this fork, this will create an independent, 
-local version of the repository that will not contribute to the upstream branch if done correctly.
 
-Now that you have a local copy of the repository saved to your computer the next step is to open this as a jupyter notebook. Open up anaconda navigator and make sure you are in your egm722 environment.
 
-The simplest way to launch notebook from here is by clicking on the Launch button below the jupyter notebook icon. If that doesn’t take you to the correct directory, 
-jupyter can be opened from a command line prompt. Open a command window and enter the following line:
 
-jupyter notebook --notebook-dir={your drive here}:/
+
+
+
+
+Step 4. Now that you have a local copy of the repository saved to your computer the next step is to open this as a jupyter notebook. Open anaconda navigator and make sure you are in your egm722 environment (the red box in figure 8).
+
  
+Figure 8 Anaconda navigator
+Step 5. The simplest way to launch notebook from here is by clicking on the Launch button below the jupyter notebook icon. If that doesn’t take you to the correct directory, jupyter can be opened from a command line prompt. Open a command window and enter the following line:
  
-If you get an error here, check your syntax and make sure the command is entered correctly. Successfully running this command will open jupyter in your default browser, from here navigate to where your cloned repository is and select the file named ‘Arena_Map_Project.ipynb’ to begin running the code.
+Note: replace E:/ with the location of your working directory. If your command is successful, you should see an output that looks like figure 9.
 
-2.	Code guide
-Start at section one and work your way through the notebook. 
+ 
+Figure 9 Successful command
+If you get an error here, check your syntax and make sure the command is entered correctly. Successfully running this command will open jupyter in your default browser.
+Step 6. From here navigate to where your cloned repository is and select the file named ‘Arena_Map_Project.ipynb’ to begin running the code (figure 10).
+ 
+Figure 10 Jupyter Notebook directory
 
-3.	Troubleshooting
-•	Repeatedly running section 4 (charts) can cause jupyter notebook to stop outputting displaying information like print statements and calling column headers. 
-	The most straightforward solution is to clear all cell outputs, close the notebook totally and restart from anaconda navigator.
-•	Clearing outputs and beginning the code from the start will cause progress to ‘reset’ when running the cancun() function to change the map, e.g., 
-	running code to eliminate 5 teams, clearing and starting again will ‘reinstate’ those teams.
-•	Running the cancun() function by calling it more than one at a time appeared to cause an issue where maps wouldn’t be updated correctly. 
-	The workaround for this is to run the function and wait for the saved map to appear in the directory and for the output message to display on notebook before running it again for another team.
-
-
-
+3.	Methods/code guide
+This section will walk through the code and explain the processes and the methodology. The notebook is written with the intent of being straightforward to read and interpret and should be considered the better source of information.  There is no complex analysis undertaken here, this code is meant to produce a map that is fun to pore over.
+3.1.	Recalculating the map
+The maps produced by this code can be modified and changed to reflect the current state of the NBA regarding which teams are still in contention for the NBA title. Contender status was checked by appending a column to the Arenas dataframe called ‘In Contention’ with a boolean value of ‘True’ or ‘False’. This status was then altered by calling the function cancun(), (figure 11).
+ 
+Figure 11 cancun() function
+The function takes a string argument of a team name which must be an exact match to one in the dataframe already, otherwise it won’t work. The main thing this function does is replace the value of ‘True’ with one of ‘False’ before calling another function that will update the map (figure 12).
+ 
+Figure 12 update_map() function (partial)
+This function filters out any teams with their contention status reading false and then repeats the spatial join of the counties layer to the nearest arena. It then converts the distance column from metres to kilometres. These functions were created as it is possible to run this code 29 times to ‘eliminate’ teams from contention and doing these steps manually is time-consuming.
+4.	Expected Results
+This section will display screenshots of expected results from the code, namely the maps and charts. Figure 13 is the expected results of just plotting the arenas data at the start without anything else.
+ 
+Figure 13 First plot, arena data, nothing else.
+Figure 14 then is the output after running the code that will create the retired numbers list and displaying the map with markers and US County boundaries. Produced at the end of section 1 of the notebook.
+ 
+Figure 14 Plotting arenas with information and US counties.
+Figure 15 is the map that is produced at the end of section 2 of the notebook. Population data is included and each County is displayed according to the closest NBA team (going from geographic centre to coordinates of the arena).
+ 
+Figure 15 Map with full symbology for US Counties and arenas, all 30 teams
+Figure 16 then is the result of running the cancun() function a few times in order to eliminate teams. You can see that the icons for Orlando (central Florida), New Orleans, the Indiana Pacers, and the 3 teams located in the state of Texas have been changed from a red basketball to a blue fish. Nearest distances have been recalculated to find the closest teams still in contention and that is shown here, for example most of Texas would find that their closest NBA team is now Oklahoma City.
+ 
+Figure 16 Map after eliminating Orlando, New Orleans, and the three Texas teams.
+Figure 17 is an expected output from running the code to produce charts in section 4 of the notebook. The size of the chart image is set high in the code to ensure nothing is cut off, this may cause issues with the chart displaying in notebook’s display, the saved image should display without problems.
+ 
+5.	Troubleshooting
+•	Repeatedly running section 4 (charts) can cause jupyter notebook to stop outputting displaying information like print statements and calling column headers. The most straightforward solution is to clear all cell outputs, close the notebook totally and restart from anaconda navigator.
+•	Clearing outputs and beginning the code from the start will cause progress to ‘reset’ when running the cancun() function to change the map, e.g., running code to eliminate 5 teams, clearing and starting again will ‘reinstate’ those teams.
+•	Running the cancun() function by calling it more than one at a time appeared to cause an issue where maps wouldn’t be updated correctly. The workaround for this is to run the function and wait for the saved map to appear in the directory and for the output message to display on notebook before running it again for another team.
+6.	References
+NBA on TNT. Inside the NBA. Available at: https://www.youtube.com/watch?v=MrfLBx5N62s (Accessed 02/05/2023)
+Loose, J., (2023). Closest 2023 NCAA Tournament Team to Each US County https://www.reddit.com/r/CollegeBasketball/comments/11psc4h/closest_2023_ncaa_tournament_team_to_each_us/ [Accessed: 17/04/2023]
+Goldsberry, K. (2019). Sprawlball: A Visual Tour of the New Era of the NBA. New York, Ny: Houghton Mifflin Harcourt.
