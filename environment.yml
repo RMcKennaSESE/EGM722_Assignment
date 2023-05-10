@@ -4,6 +4,7 @@ channels:
   - defaults
 dependencies:
   - python=3.9
+  - numpy
   - geopandas
   - cartopy
   - notebook
@@ -11,3 +12,5 @@ dependencies:
   - pyepsg
   - folium
   - collections
+  - shapely
+  - matplotlib
