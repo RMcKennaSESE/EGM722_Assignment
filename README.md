@@ -5,6 +5,7 @@ Ronan McKenna
 B00907678
 
 1.	Introduction
+
 Geography and basketball are two subjects which find themselves surprisingly intertwined. One of the more notable inspirations for this project was the work of Kirk Golsberry, a cartographer and data visualization specialist who has gone on to write for major publications such as ESPN and Grantland as well as publishing a book, Sprawlball (2019), on how space has driven change in how the game is played in the last decade. While the specifics of shot charts and what True Shooting % means aren’t explored here, it’s nice to give a nod to past work. The other main influence on this project is the work of Joey Loose (u/jloose128 on reddit) who has produced maps of the NCAA tournament each year. These maps, which display the closest US county to each team, at each stage in the tournament are the biggest source of inspiration for the work done here.
 This code in this repository is a Jupyter notebook intended to create and display a map of the USA containing point data for teams from the National Basketball Association. Data from US counties will also be incorporated and displayed according to the nearest NBA team. The last section of the code in this notebook will create and save bar charts to your working directory. Running this code will create a map displaying all 30 teams in the NBA as of writing this document.
  
@@ -13,7 +14,10 @@ The code will then use functions that will modify the data used and recalculate 
  
 
 To briefly explain this new map, teams still in contention have a red marker with a basketball on it, teams that have been eliminated are displayed with a blue marker with a fish on it (they’ve gone fishing).
+
+
 2.	Installation guide
+
 Repository for the code can be found here: https://github.com/RMcKennaSESE/EGM722_Assignment 
 
  
@@ -40,6 +44,7 @@ README.md
 Scribbles.txt 	Plain text file containing notes taken while coding.
 		
 Installation instructions will be written presuming user has already set up git and a conda environment (in this case, the egm722 environment).
+
 Step 1. In order to run the code on your own machine, you will first need to fork the repository and clone it to your own directory.
 
  
@@ -112,8 +117,11 @@ Step 6. From here navigate to where your cloned repository is and select the fil
 
 
 3.	Methods/code guide
+
 This section will walk through the code and explain the processes and the methodology. The notebook is written with the intent of being straightforward to read and interpret and should be considered the better source of information.  There is no complex analysis undertaken here, this code is meant to produce a map that is fun to pore over.
+
 3.1.	Recalculating the map
+
 The maps produced by this code can be modified and changed to reflect the current state of the NBA regarding which teams are still in contention for the NBA title. Contender status was checked by appending a column to the Arenas dataframe called ‘In Contention’ with a boolean value of ‘True’ or ‘False’. This status was then altered by calling the function cancun().
  
 
@@ -123,10 +131,13 @@ The function takes a string argument of a team name which must be an exact match
 This function filters out any teams with their contention status reading false and then repeats the spatial join of the counties layer to the nearest arena. It then converts the distance column from metres to kilometres. These functions were created as it is possible to run this code 29 times to ‘eliminate’ teams from contention and doing these steps manually is time-consuming.
 
 4.	Troubleshooting
+
 •	Repeatedly running section 4 (charts) can cause jupyter notebook to stop outputting displaying information like print statements and calling column headers. The most straightforward solution is to clear all cell outputs, close the notebook totally and restart from anaconda navigator.
 •	Clearing outputs and beginning the code from the start will cause progress to ‘reset’ when running the cancun() function to change the map, e.g., running code to eliminate 5 teams, clearing and starting again will ‘reinstate’ those teams.
 •	Running the cancun() function by calling it more than one at a time appeared to cause an issue where maps wouldn’t be updated correctly. The workaround for this is to run the function and wait for the saved map to appear in the directory and for the output message to display on notebook before running it again for another team.
+
 5.	References
+
 NBA on TNT. Inside the NBA. Available at: https://www.youtube.com/watch?v=MrfLBx5N62s (Accessed 02/05/2023)
 Loose, J., (2023). Closest 2023 NCAA Tournament Team to Each US County https://www.reddit.com/r/CollegeBasketball/comments/11psc4h/closest_2023_ncaa_tournament_team_to_each_us/ [Accessed: 17/04/2023]
 Goldsberry, K. (2019). Sprawlball: A Visual Tour of the New Era of the NBA. New York, Ny: Houghton Mifflin Harcourt.
