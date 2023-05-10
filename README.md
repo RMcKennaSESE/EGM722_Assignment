@@ -34,10 +34,15 @@ Once the repository is forked it will need to be cloned to your computer. To do 
  
 Go to File->Clone repository or Ctrl+Shift+O to open the clone repository menu. 
  
-Select a path to save the repository to, remember where, as it will be needed for the next step. Click Clone to clone the repository. Once the repository is finished cloning, select the option For my own purposes when asked how you are planning to use this fork, this will create an independent, local version of the repository that will not contribute to the upstream branch if done correctly.
+Select a path to save the repository to, remember where, as it will be needed for the next step. 
+
+Click Clone to clone the repository. Once the repository is finished cloning, select the option For my own purposes when asked how you are planning to use this fork, this will create an independent, 
+local version of the repository that will not contribute to the upstream branch if done correctly.
+
 Now that you have a local copy of the repository saved to your computer the next step is to open this as a jupyter notebook. Open up anaconda navigator and make sure you are in your egm722 environment.
 
-The simplest way to launch notebook from here is by clicking on the Launch button below the jupyter notebook icon. If that doesn’t take you to the correct directory, jupyter can be opened from a command line prompt. Open a command window and enter the following line:
+The simplest way to launch notebook from here is by clicking on the Launch button below the jupyter notebook icon. If that doesn’t take you to the correct directory, 
+jupyter can be opened from a command line prompt. Open a command window and enter the following line:
 
 jupyter notebook --notebook-dir={your drive here}:/
  
@@ -48,7 +53,12 @@ If you get an error here, check your syntax and make sure the command is entered
 Start at section one and work your way through the notebook. 
 
 3.	Troubleshooting
-Repeatedly running section 4 (charts) can cause jupyter notebook to stop outputting displaying information like print statements and .head(). The most straightforward solution is to clear cell outputs, close the notebook totally and open it up again.
+•	Repeatedly running section 4 (charts) can cause jupyter notebook to stop outputting displaying information like print statements and calling column headers. 
+	The most straightforward solution is to clear all cell outputs, close the notebook totally and restart from anaconda navigator.
+•	Clearing outputs and beginning the code from the start will cause progress to ‘reset’ when running the cancun() function to change the map, e.g., 
+	running code to eliminate 5 teams, clearing and starting again will ‘reinstate’ those teams.
+•	Running the cancun() function by calling it more than one at a time appeared to cause an issue where maps wouldn’t be updated correctly. 
+	The workaround for this is to run the function and wait for the saved map to appear in the directory and for the output message to display on notebook before running it again for another team.
 
 
 
