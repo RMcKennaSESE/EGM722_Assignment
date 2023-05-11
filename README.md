@@ -131,6 +131,7 @@ The function takes a string argument of a team name which must be an exact match
 This function filters out any teams with their contention status reading false and then repeats the spatial join of the counties layer to the nearest arena. It then converts the distance column from metres to kilometres. These functions were created as it is possible to run this code 29 times to ‘eliminate’ teams from contention and doing these steps manually is time-consuming.
 
 3.2.	Creating charts
+
 The second set of functions created for this notebook control the collation of data, both numeric and non-numeric and plot those in a bar chart to be displayed in your browser and saved as an image file to the charts folder (there are example charts in the folder in the github repository). 
 
  
