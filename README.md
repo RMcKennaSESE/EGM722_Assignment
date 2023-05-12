@@ -6,9 +6,9 @@ B00907678
 
 1.	Introduction
 
-Geography and basketball are two subjects which find themselves surprisingly intertwined. One of the more notable inspirations for this project was the work of Kirk Golsberry, a cartographer and data visualization specialist who has gone on to write for major publications such as ESPN and Grantland as well as publishing a book, Sprawlball (2019), on how space has driven change in how the game is played in the last decade. While the specifics of shot charts and what True Shooting % means aren’t explored here, it’s nice to give a nod to past work. The other main influence on this project is the work of Joey Loose (u/jloose128 on reddit) who has produced maps of the NCAA tournament each year. These maps, which display the closest US county to each team, at each stage in the tournament are the biggest source of inspiration for the work done here.
-This code in this repository is a Jupyter notebook intended to create and display a map of the USA containing point data for teams from the National Basketball Association. Data from US counties will also be incorporated and displayed according to the nearest NBA team. The last section of the code in this notebook will create and save bar charts to your working directory. Running this code will create a map displaying all 30 teams in the NBA as of writing this document.
- 
+Geography and basketball are two subjects which find themselves surprisingly intertwined. One of the more notable inspirations for this project was the work of Kirk Golsberry, a cartographer and data visualization specialist who has written for major publications such as ESPN and Grantland as well as publishing a book, Sprawlball (2019), on how space has driven change in how the game is played in the last decade. While the specifics of shot charts and what True Shooting % means aren’t explored here, reference should be given to influential work. The other main influence on this project is the work of Joey Loose (u/jloose128 on Reddit) who has produced maps of the NCAA tournament each year. These maps, which display the closest US county to each team, at each stage in the tournament are the biggest source of inspiration for the work done here.
+
+This code in this repository is a Jupyter notebook intended to create and display a map of the USA containing point data for teams from the National Basketball Association (NBA). Data from US counties will also be incorporated and displayed according to the nearest NBA team. The last section of the code in this notebook will create and save bar charts to your working directory
 
 The code will then use functions that will modify the data used and recalculate the map, essentially eliminating teams from the title race.
  
@@ -20,12 +20,36 @@ To briefly explain this new map, teams still in contention have a red marker wit
 
 Repository for the code can be found here: https://github.com/RMcKennaSESE/EGM722_Assignment 
 
- 
 
-Table 1 is a description of the contents of the repository.
+2.1.	Dependencies
+
+The main packages for this project are listed in table 1.
+
+Table 1 List of main dependencies used in project
+Package	Use	Homepage
+Python 3.9	Python version used	
+numpy	Numerical Python, used for numeric operations	https://numpy.org/ 
+
+pandas	Data modification and manipulation	https://numpy.org/  
+
+geopandas	For working with geospatial data in python	https://geopandas.org/en/stable/ 
+
+notebook	Allows for creation and display of interactive code notebook	https://jupyter.org/ 
+
+folium	Used for interactive mapping	https://python-visualization.github.io/folium/ 
+
+shapely	Used for geographical operations	https://shapely.readthedocs.io/en/stable/manual.html 
+
+matplotlib	Used for creating plots in python	https://matplotlib.org/ 
 
 
-Table 1 Contents of repository and description
+2.2.	Installing the software
+
+
+Table 2 is a description of the contents of the repository.
+
+
+Table 2 Contents of repository and description
 Name	Description
 Charts 
 	Folder which will contain any images of charts saved when running the code. Contains example charts.
@@ -113,6 +137,11 @@ Note: replace E:/ with the location of your working directory.
 
 If you get an error here, check your syntax and make sure the command is entered correctly. Successfully running this command will open jupyter in your default browser.
 Step 6. From here navigate to where your cloned repository is and select the file named ‘Arena_Map_Project.ipynb’ to begin running the code.
+
+2.3.	Data preparation
+
+All data necessary to run this software is contained in the data-files folder in the repository, details on sources for this data can be found there. Any preparation required to make this data useable in the project has already been carried out or is handled in a step-by-step fashion by the code.
+
  
 
 
@@ -146,8 +175,10 @@ The purpose of this function is to control the style of the plots produced by th
 
 4.	Troubleshooting
 
+•	When launching the software, ensure it is launched from the egm722 environment, otherwise the project will not work.
 •	Repeatedly running section 4 (charts) can cause jupyter notebook to stop outputting displaying information like print statements and calling column headers. The most straightforward solution is to clear all cell outputs, close the notebook totally and restart from anaconda navigator.
-•	Clearing outputs and beginning the code from the start will cause progress to ‘reset’ when running the cancun() function to change the map, e.g., running code to eliminate 5 teams, clearing and starting again will ‘reinstate’ those teams.
+•	Sometimes, maps may not display in output windows in the notebook view, they should open without issue in your browser when opened from file explorer.
+•	Clearing outputs and beginning the code from the start will cause progress to ‘reset’ when running the cancun() function to change the map, e.g. running code to eliminate 5 teams, clearing and starting again will ‘reinstate’ those teams.
 •	Running the cancun() function by calling it more than one at a time appeared to cause an issue where maps wouldn’t be updated correctly. The workaround for this is to run the function and wait for the saved map to appear in the directory and for the output message to display on notebook before running it again for another team.
 
 5.	References
