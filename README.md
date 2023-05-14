@@ -23,49 +23,48 @@ Repository for the code can be found here: https://github.com/RMcKennaSESE/EGM72
 
 2.1.	Dependencies
 
-The main packages for this project are listed in table 1.
+The main packages for this project are listed below.
 
-Table 1 List of main dependencies used in project
-Package	Use	Homepage
-Python 3.9	Python version used	
-numpy	Numerical Python, used for numeric operations	https://numpy.org/ 
 
-pandas	Data modification and manipulation	https://numpy.org/  
+Python 3.9:	Python version used
+	
+numpy:	Numerical Python, used for numeric operations	https://numpy.org/ 
 
-geopandas	For working with geospatial data in python	https://geopandas.org/en/stable/ 
+pandas:	Data modification and manipulation	https://numpy.org/  
 
-notebook	Allows for creation and display of interactive code notebook	https://jupyter.org/ 
+geopandas:	For working with geospatial data in python	https://geopandas.org/en/stable/ 
 
-folium	Used for interactive mapping	https://python-visualization.github.io/folium/ 
+notebook:	Allows for creation and display of interactive code notebook	https://jupyter.org/ 
 
-shapely	Used for geographical operations	https://shapely.readthedocs.io/en/stable/manual.html 
+folium:	Used for interactive mapping	https://python-visualization.github.io/folium/ 
 
-matplotlib	Used for creating plots in python	https://matplotlib.org/ 
+shapely	Used for geographical operations:	https://shapely.readthedocs.io/en/stable/manual.html 
+
+matplotlib:	Used for creating plots in python	https://matplotlib.org/ 
 
 
 2.2.	Installing the software
 
 
-Table 2 is a description of the contents of the repository.
+Below is a description of the contents of the repository.
 
 
-Table 2 Contents of repository and description
-Name	Description
-Charts 
-	Folder which will contain any images of charts saved when running the code. Contains example charts.
-Data-files 
-	Location of all data files used for this code, including shapefiles, .csv files and GEOJSON files.
-Maps 
-	Folder which will contain any maps saved when running the code. Contains example maps.
-.gitignore - 
-	Standard file telling git which files to ignore.
-Arena_Map_Project.ipynb 
-	Notebook containing the code needed to run this project.
-LICENSE 
-	Licence file for github code. The licence used for this project is an open MIT licence.
-README.md 
-	Setup/installation guide for software.
-Scribbles.txt 	Plain text file containing notes taken while coding.
+
+Charts: Folder which will contain any images of charts saved when running the code. Contains example charts.
+
+Data-files: Location of all data files used for this code, including shapefiles, .csv files and GEOJSON files.
+
+Maps: Folder which will contain any maps saved when running the code. Contains example maps.
+
+.gitignore: Standard file telling git which files to ignore.
+
+Arena_Map_Project.ipynb: Notebook containing the code needed to run this project.
+
+LICENSE: Licence file for github code. The licence used for this project is an open MIT licence.
+
+README.md: Setup/installation guide for software.
+
+Scribbles.txt: Plain text file containing notes taken while coding.
 		
 Installation instructions will be written presuming user has already set up git and a conda environment (in this case, the egm722 environment).
 
@@ -176,13 +175,20 @@ The purpose of this function is to control the style of the plots produced by th
 4.	Troubleshooting
 
 •	When launching the software, ensure it is launched from the egm722 environment, otherwise the project will not work.
+
 •	Repeatedly running section 4 (charts) can cause jupyter notebook to stop outputting displaying information like print statements and calling column headers. The most straightforward solution is to clear all cell outputs, close the notebook totally and restart from anaconda navigator.
+
 •	Sometimes, maps may not display in output windows in the notebook view, they should open without issue in your browser when opened from file explorer.
+
 •	Clearing outputs and beginning the code from the start will cause progress to ‘reset’ when running the cancun() function to change the map, e.g. running code to eliminate 5 teams, clearing and starting again will ‘reinstate’ those teams.
+
 •	Running the cancun() function by calling it more than one at a time appeared to cause an issue where maps wouldn’t be updated correctly. The workaround for this is to run the function and wait for the saved map to appear in the directory and for the output message to display on notebook before running it again for another team.
 
 5.	References
 
 NBA on TNT. Inside the NBA. Available at: https://www.youtube.com/watch?v=MrfLBx5N62s (Accessed 02/05/2023)
-Loose, J., (2023). Closest 2023 NCAA Tournament Team to Each US County https://www.reddit.com/r/CollegeBasketball/comments/11psc4h/closest_2023_ncaa_tournament_team_to_each_us/ [Accessed: 17/04/2023]
+Loose, J., (2023). 
+
+Closest 2023 NCAA Tournament Team to Each US County https://www.reddit.com/r/CollegeBasketball/comments/11psc4h/closest_2023_ncaa_tournament_team_to_each_us/ [Accessed: 17/04/2023]
+
 Goldsberry, K. (2019). Sprawlball: A Visual Tour of the New Era of the NBA. New York, Ny: Houghton Mifflin Harcourt.
